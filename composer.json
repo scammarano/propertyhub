@@ -1,0 +1,16 @@
+{
+  "name": "2cam/property-hub",
+  "description": "Plataforma multimarca para urbanizaciones, edificios residenciales, oficinas, comercios y complejos mixtos",
+  "type": "project",
+  "require": {
+    "php": ">=8.1",
+    "ext-curl": "*",
+    "ext-json": "*",
+    "ext-openssl": "*",
+    "ext-pdo": "*",
+    "ext-pdo_mysql": "*"
+  },
+  "suggest": {
+    "ext-zip": "Necesaria en Property Hub Central para validar y publicar paquetes ZIP"
+  }
+}

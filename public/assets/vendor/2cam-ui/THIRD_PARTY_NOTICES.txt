@@ -1,0 +1,25 @@
+2CAM UI STANDARD 1.2.0 - AVISOS DE TERCEROS
+
+AdminLTE 4.1.0
+Copyright (c) ColorlibHQ
+Licencia MIT. Copia incluida en assets/adminlte/LICENSE-AdminLTE.txt.
+
+Bootstrap 5 (integrado en la base visual AdminLTE)
+Licencia MIT.
+
+Chart.js 2.7.2
+Licencia MIT.
+
+jQuery 3.2.1
+Licencia MIT.
+
+DataTables 1.10.16
+Licencia MIT.
+
+Select2 4.0.5
+Licencia MIT.
+
+Los archivos se incluyen localmente para que las aplicaciones puedan operar sin depender de CDN.
+No se incluyen ni redistribuyen archivos de fuentes tipográficas.
+
+Integration note: visual patterns from NP Visual Common 1.1.0 are consolidated into the 2CAM compatibility layer.

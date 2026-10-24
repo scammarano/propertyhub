@@ -1,0 +1,15 @@
+{
+  "code": "internet",
+  "name": "Internet de invitados y vouchers",
+  "version": "0.10.7",
+  "installation_role": "building_node",
+  "capabilities": [
+    "wifi_vouchers",
+    "guest_portal",
+    "quotas",
+    "validity",
+    "visitor_links",
+    "reservation_links"
+  ],
+  "status": "planned"
+}

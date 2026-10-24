@@ -1,0 +1,15 @@
+{
+  "code": "automation",
+  "name": "Automatización e IoT",
+  "version": "0.10.7",
+  "installation_role": "building_node",
+  "capabilities": [
+    "relays",
+    "sensors",
+    "scenes",
+    "rules",
+    "alerts",
+    "lorawan"
+  ],
+  "status": "planned"
+}

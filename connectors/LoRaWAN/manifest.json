@@ -1,0 +1,30 @@
+{
+  "manifest_version": 1,
+  "connector_version": "0.1.0",
+  "requires_core": ">=0.5.0",
+  "configuration_secrets_must_be_encrypted": true,
+  "code": "lorawan",
+  "name": "LoRaWAN / IoT",
+  "domains": [
+    "automation",
+    "iot"
+  ],
+  "integration_modes": [
+    "ChirpStack local",
+    "The Things Stack",
+    "MQTT",
+    "Webhook",
+    "Vendor Cloud"
+  ],
+  "capabilities": [
+    "networks",
+    "gateways",
+    "sensors",
+    "telemetry",
+    "battery_status",
+    "alerts",
+    "low_bandwidth_commands",
+    "automation_rules"
+  ],
+  "status": "planned"
+}

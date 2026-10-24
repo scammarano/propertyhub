@@ -1,0 +1,12 @@
+{
+  "manifest_version": 1,
+  "connector_version": "0.2.0",
+  "requires_core": ">=0.11.0",
+  "configuration_secrets_must_be_encrypted": true,
+  "code": "onvif",
+  "name": "ONVIF",
+  "domains": ["video"],
+  "integration_modes": ["WS-Discovery", "Profile T planned", "Profile S planned"],
+  "capabilities": ["ws_discovery", "stream_profiles_planned", "events_planned", "ptz_planned"],
+  "status": "beta"
+}

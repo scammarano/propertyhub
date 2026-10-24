@@ -1,0 +1,27 @@
+# Runtime / environment
+.env
+.env.*
+!.env.example
+storage/
+logs/
+*.log
+
+# Dependencies / local tooling
+vendor/
+node_modules/
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Generated update/release artifacts
+resources/releases/*.zip
+updates/*.zip
+*.phbackup
+*.propertyhub-deploy
+
+# Temporary / backup files
+*.tmp
+*.bak
+*.swp
+*~

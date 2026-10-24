@@ -1,0 +1,15 @@
+{
+  "code": "access",
+  "name": "Control de accesos y credenciales",
+  "version": "0.10.7",
+  "installation_role": "building_node",
+  "capabilities": [
+    "access_points",
+    "credentials",
+    "permissions",
+    "remote_open",
+    "events",
+    "elevators"
+  ],
+  "status": "foundation"
+}

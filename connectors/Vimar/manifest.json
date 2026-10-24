@@ -1,0 +1,58 @@
+{
+  "manifest_version": 1,
+  "connector_version": "0.5.1",
+  "requires_core": ">=0.14.50",
+  "configuration_secrets_must_be_encrypted": true,
+  "code": "vimar",
+  "name": "Vimar Universal Connector",
+  "domains": [
+    "intercom",
+    "video",
+    "automation",
+    "access"
+  ],
+  "integration_modes": [
+    "Property Edge direct LAN discovery (default)",
+    "Vimar VIEW / HomeKit-HAP discovery",
+    "Vimar By-me / KNXnet-IP discovery",
+    "Vimar Elvox Video Door IP / Riserless discovery",
+    "VimarHub external bridge (optional laboratory/fallback)",
+    "Home Assistant local gateway (optional)"
+  ],
+  "discovery_protocols": [
+    "mDNS / HomeKit HAP advertisement",
+    "KNXnet/IP Search",
+    "SSDP / UPnP",
+    "WS-Discovery vendor-filtered",
+    "SIP OPTIONS local /24 probe",
+    "ARP neighbour + Vimar IEEE OUI fingerprint"
+  ],
+  "capabilities": [
+    "local_discovery",
+    "gateway_inventory",
+    "gateway_adoption",
+    "technical_inventory",
+    "elvox_ip_discovery",
+    "riserless_gateway_discovery",
+    "entrance_panel_discovery",
+    "indoor_station_discovery",
+    "io_relay_discovery",
+    "lift_interface_discovery",
+    "device_inventory_when_adapter_exposes_it",
+    "rooms_when_exposed",
+    "capability_normalization",
+    "relays",
+    "switches",
+    "lights",
+    "covers",
+    "climate",
+    "sensors",
+    "energy",
+    "intercom",
+    "read_state",
+    "pulse_when_mapped"
+  ],
+  "status": "beta",
+  "installation_scope": "edge_agent_only",
+  "distribution_chain": "central -> property_node -> edge_agent"
+}

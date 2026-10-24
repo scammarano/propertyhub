@@ -1,0 +1,2 @@
+<?php
+declare(strict_types=1);require __DIR__.'/_bootstrap.php';if(($_SERVER['REQUEST_METHOD']??'GET')!=='POST')edge_api_response(['ok'=>false,'error'=>'method_not_allowed'],405);try{$r=(new EdgeNodeService(Connection::pdo()))->register(edge_api_input(),edge_api_header('X-Edge-Pairing-Token'));edge_api_response($r);}catch(Throwable $e){ErrorReporter::report($e,['operation'=>'edge_register']);edge_api_response(['ok'=>false,'error'=>'edge_registration_failed','message'=>$e->getMessage()],422);}

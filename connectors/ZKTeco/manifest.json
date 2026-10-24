@@ -1,0 +1,27 @@
+{
+  "manifest_version": 1,
+  "connector_version": "0.2.0",
+  "requires_core": ">=0.11.0",
+  "configuration_secrets_must_be_encrypted": true,
+  "code": "zkteco",
+  "name": "ZKTeco ZKBioSecurity Server",
+  "vendor": "ZKTeco",
+  "domains": ["access"],
+  "target_types": ["platform_server"],
+  "manages_downstream_assets": true,
+  "direct_device_policy": "forbidden",
+  "integration_modes": [
+    "ZKBio CVSecurity 3rd Party REST API"
+  ],
+  "capabilities": [
+    "connection_test",
+    "device_list",
+    "door_list",
+    "people_planned",
+    "credentials_planned",
+    "access_levels_planned",
+    "events_planned",
+    "remote_open_planned"
+  ],
+  "status": "beta"
+}

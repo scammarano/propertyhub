@@ -1,0 +1,28 @@
+{
+  "manifest_version": 1,
+  "connector_version": "0.1.0",
+  "requires_core": ">=0.2.0",
+  "configuration_secrets_must_be_encrypted": true,
+  "code": "grandstream",
+  "name": "Grandstream",
+  "domains": [
+    "intercom",
+    "telephony",
+    "paging"
+  ],
+  "integration_modes": [
+    "SIP",
+    "UCM integration",
+    "GDS intercom",
+    "GSC paging"
+  ],
+  "capabilities": [
+    "extensions",
+    "door_intercom",
+    "call_groups",
+    "paging_zones",
+    "emergency_announcements",
+    "call_events"
+  ],
+  "status": "planned"
+}

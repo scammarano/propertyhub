@@ -1,0 +1,15 @@
+{
+  "code": "visitors",
+  "name": "Visitantes e invitaciones",
+  "version": "0.10.7",
+  "installation_role": "building_node",
+  "capabilities": [
+    "invitations",
+    "visitor_database",
+    "check_in",
+    "check_out",
+    "temporary_credentials",
+    "vehicles"
+  ],
+  "status": "foundation"
+}

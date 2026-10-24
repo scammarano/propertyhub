@@ -1,0 +1,4 @@
+<?php $items=$emergencyContacts??[];?>
+<section class="resident-page-title emergency-title"><span>Ayuda rápida</span><h1>Emergencias</h1><p>Toca un número para llamar desde el teléfono.</p></section>
+<section class="emergency-grid-mobile"><?php foreach($items as $contact):?><a href="tel:<?=e(preg_replace('/[^0-9+]/','',(string)$contact['phone']))?>"><span><i class="<?=e($contact['icon'])?>"></i></span><strong><?=e($contact['name'])?></strong><b><?=e($contact['phone'])?></b><small><?=e($contact['availability']?:'Consultar disponibilidad')?></small></a><?php endforeach;?></section>
+<?php if(!$items):?><div class="resident-empty">La administración todavía no ha cargado los números de emergencia.</div><?php endif;?><div class="safety-note"><i class="bi bi-info-circle"></i><p>Property App facilita el contacto, pero no sustituye los números oficiales ni los procedimientos de emergencia.</p></div>

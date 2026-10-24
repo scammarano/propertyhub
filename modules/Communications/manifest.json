@@ -1,0 +1,19 @@
+{
+  "code": "communications",
+  "name": "Cartelera y notificaciones",
+  "version": "0.10.7",
+  "portals": [
+    "resident",
+    "operations"
+  ],
+  "capabilities": [
+    "bulletin_board",
+    "audiences",
+    "in_app_notifications",
+    "emergency_directory",
+    "push_future",
+    "email_future",
+    "whatsapp_future",
+    "paging_future"
+  ]
+}

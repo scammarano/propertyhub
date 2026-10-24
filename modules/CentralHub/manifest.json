@@ -1,0 +1,23 @@
+{
+  "code": "central_hub_console",
+  "name": "Property Hub Central Console",
+  "version": "0.10.7",
+  "experience": "desktop_adminlte",
+  "roles": [
+    "superadmin"
+  ],
+  "installation_role": "central_repository",
+  "capabilities": [
+    "installation_portfolio",
+    "health_monitoring",
+    "aggregate_metrics",
+    "vendor_api_catalog",
+    "connector_catalog",
+    "release_repository",
+    "registration_tokens",
+    "privacy_policy",
+    "support_sessions",
+    "infrastructure_summary",
+    "urbanization_portfolio"
+  ]
+}

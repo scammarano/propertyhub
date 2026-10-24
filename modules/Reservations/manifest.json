@@ -1,0 +1,19 @@
+{
+  "code": "reservations",
+  "name": "Reservas de áreas",
+  "version": "0.10.7",
+  "portals": [
+    "resident",
+    "operations"
+  ],
+  "capabilities": [
+    "area_catalog",
+    "availability_calendar",
+    "request",
+    "approval",
+    "rejection",
+    "overlap_validation",
+    "payments_future",
+    "access_activation_future"
+  ]
+}

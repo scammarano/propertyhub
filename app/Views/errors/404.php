@@ -1,0 +1,1 @@
+<div class="empty-state"><i class="bi bi-compass"></i><h4>Página no encontrada</h4><p>La opción solicitada no existe en esta versión.</p><a href="<?=url(AuthManager::landingRoute())?>" class="btn btn-primary">Volver al inicio</a></div>

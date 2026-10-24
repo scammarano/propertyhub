@@ -1,0 +1,9 @@
+2CAM Property Hub visual dependency
+
+Source file: 2CAM_UI_STANDARD_ADMINLTE_BOOTSTRAP_V1_2_0.zip
+SHA-256: 6386128de7562d4a54b3565d57a5f313999f6de70d7f458813094119dbfca949
+Integrated UI version: 1.2.0
+Property Hub release: 0.10.7
+Integration date: 2026-07-24
+
+The original source ZIP is not embedded. Runtime assets and attribution metadata are included under public/assets/vendor/2cam-ui/.

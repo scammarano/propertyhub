@@ -1,0 +1,55 @@
+# EJEMPLO SOLAMENTE.
+# Descargue el mediamtx.yml real desde:
+# Property Node -> Infraestructura y tecnología -> Cámaras -> Media Relay.
+# Ese archivo contiene credenciales generadas para la instalación.
+logLevel: info
+logDestinations: [stdout]
+
+authMethod: internal
+authInternalUsers:
+  - user: "REEMPLAZAR_PUBLICADOR"
+    pass: "REEMPLAZAR_PASSWORD_PUBLICADOR"
+    ips: []
+    permissions:
+      - action: publish
+        path:
+  - user: "REEMPLAZAR_VISOR"
+    pass: "REEMPLAZAR_PASSWORD_VISOR"
+    ips: []
+    permissions:
+      - action: read
+        path:
+  - user: any
+    pass:
+    ips: ["127.0.0.1", "::1"]
+    permissions:
+      - action: api
+      - action: metrics
+      - action: pprof
+
+rtsp: true
+rtspTransports: [tcp]
+rtspAddress: :8554
+rtmp: false
+hls: false
+srt: false
+moq: false
+playback: false
+
+webrtc: true
+webrtcAddress: :8889
+webrtcEncryption: false
+webrtcAllowOrigins: ["*"]
+webrtcLocalUDPAddress: :8189
+webrtcLocalTCPAddress: :8189
+webrtcIPsFromInterfaces: true
+webrtcAdditionalHosts: ["media.example.com"]
+
+api: true
+apiAddress: 127.0.0.1:9997
+metrics: false
+pprof: false
+
+paths:
+  all_others:
+    source: publisher

@@ -1,0 +1,25 @@
+{
+  "code": "operations_console",
+  "name": "Operations Console",
+  "version": "0.10.7",
+  "experience": "desktop_adminlte",
+  "roles": [
+    "admin",
+    "security",
+    "operator"
+  ],
+  "installation_role": "building_node",
+  "capabilities": [
+    "dashboards",
+    "tables",
+    "approvals",
+    "operations",
+    "local_integrations",
+    "diagnostics",
+    "updates",
+    "site_topology",
+    "guard_posts",
+    "connectivity_links",
+    "lorawan_iot"
+  ]
+}

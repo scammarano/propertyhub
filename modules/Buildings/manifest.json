@@ -1,0 +1,17 @@
+{
+  "code": "property_structure",
+  "name": "Estructura territorial y unidades",
+  "version": "0.10.7",
+  "installation_role": "building_node",
+  "capabilities": [
+    "sites",
+    "sectors",
+    "streets",
+    "towers",
+    "floors",
+    "units",
+    "guard_posts",
+    "connectivity"
+  ],
+  "status": "foundation"
+}
