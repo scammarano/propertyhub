@@ -1,0 +1,20 @@
+{
+  "name": "2CAM UI Standard",
+  "version": "1.2.0",
+  "released_at": "2026-07-24",
+  "source_reference": "2CAM UI Standard 1.1.6 + NP Visual Common 1.1.0",
+  "adminlte": "4.1.0",
+  "chartjs": "2.7.2",
+  "bootstrap_basis": "AdminLTE 4.1 / Bootstrap 5",
+  "php": ">=8.1",
+  "scope": "Apariencia autocontenida, compatibilidad de grillas, sidebar jerárquico cerrable y persistente, corrección de menús largos, widgets responsive y adaptador NEWPROFIT",
+  "compatibility_targets": [
+    "WebGuest",
+    "NEWPROFIT Express"
+  ],
+  "includes": [
+    "1.1.4 apariencia autocontenida",
+    "1.1.5 grid compatible",
+    "1.1.6 sidebar cerrable"
+  ]
+}

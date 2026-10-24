@@ -1,0 +1,1 @@
+<div class="empty-state"><i class="bi bi-shield-lock"></i><h4>Acceso no autorizado</h4><p>Su perfil no tiene permisos para esta función.</p><a href="<?=url(AuthManager::landingRoute())?>" class="btn btn-primary">Volver al inicio</a></div>

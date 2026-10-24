@@ -1,0 +1,20 @@
+{
+  "code": "resident_portal",
+  "name": "Resident App",
+  "version": "0.10.7",
+  "experience": "mobile_first_pwa",
+  "installation_role": "building_node",
+  "capabilities": [
+    "property_switcher",
+    "visitors",
+    "reservations",
+    "access_actions",
+    "cameras",
+    "bulletin",
+    "notifications",
+    "emergency",
+    "urbanization_context"
+  ],
+  "status": "operational",
+  "data_source": "property_node_database"
+}

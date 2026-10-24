@@ -1,0 +1,15 @@
+{
+  "code": "cameras",
+  "name": "Cámaras y video",
+  "version": "0.10.7",
+  "installation_role": "building_node",
+  "capabilities": [
+    "camera_catalog",
+    "live_view",
+    "recordings",
+    "ptz",
+    "audio",
+    "permissions"
+  ],
+  "status": "planned"
+}

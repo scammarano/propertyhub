@@ -1,0 +1,16 @@
+{
+  "code": "areas",
+  "name": "Áreas y espacios de la propiedad",
+  "version": "0.10.7",
+  "capabilities": [
+    "common_areas",
+    "reservable_areas",
+    "security_zones",
+    "technical_zones",
+    "commercial_and_office_areas",
+    "device_linking",
+    "parks",
+    "guard_posts",
+    "territorial_zones"
+  ]
+}

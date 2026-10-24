@@ -1,0 +1,11 @@
+2CAM Property Hub incluye componentes de terceros suministrados por el paquete 2CAM UI Standard 1.2.0 — runtime visual común del ecosistema 2CAM.
+Consulte public/assets/vendor/2cam-ui/assets/adminlte/LICENSE-AdminLTE.txt y los avisos del paquete visual original.
+
+Bootstrap bundle 5.3.6
+Copyright 2011-2025 The Bootstrap Authors
+Licencia MIT. El encabezado de licencia se conserva en public/assets/vendor/bootstrap/bootstrap.bundle.min.js.
+
+
+HLS.js 1.7.0
+Copyright video-dev contributors
+Licencia Apache-2.0. En laboratorio se carga con versión fijada desde jsDelivr para reproducción HLS autenticada en navegadores móviles modernos.

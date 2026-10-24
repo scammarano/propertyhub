@@ -1,0 +1,5 @@
+Options -Indexes
+DirectoryIndex index.php
+<FilesMatch "(^\.|\.env$|installed\.lock$|\.(sql|pem|p8|log|bak)$)">
+  Require all denied
+</FilesMatch>

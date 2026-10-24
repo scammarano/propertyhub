@@ -1,0 +1,28 @@
+{
+  "manifest_version": 1,
+  "connector_version": "0.1.0",
+  "requires_core": ">=0.2.0",
+  "configuration_secrets_must_be_encrypted": true,
+  "code": "hikvision",
+  "name": "Hikvision",
+  "domains": [
+    "access",
+    "video",
+    "intercom"
+  ],
+  "integration_modes": [
+    "ISAPI",
+    "HikCentral OpenAPI",
+    "ONVIF",
+    "RTSP"
+  ],
+  "capabilities": [
+    "people",
+    "credentials",
+    "events",
+    "cameras",
+    "recordings",
+    "intercom"
+  ],
+  "status": "research"
+}

@@ -1,0 +1,36 @@
+{
+  "product": "2CAM Property Hub",
+  "version": "0.14.65",
+  "single_codebase": true,
+  "modes": {
+    "central_repository": {
+      "label": "Property Hub Central",
+      "purpose": "Administración de la plataforma: instalaciones, versiones, tokens, salud, backups y repositorio oficial",
+      "database_scope": "independent",
+      "operational_property_modules": false,
+      "repository_enabled": true
+    },
+    "building_node": {
+      "label": "Property Node",
+      "purpose": "Aplicación completa y pública de una propiedad: estructura, usuarios, residentes, visitantes, permisos, Resident App y reglas funcionales",
+      "database_scope": "independent",
+      "operational_property_modules": true,
+      "credentials_stay_local": false,
+      "repository_enabled": false,
+      "offline_operation": false,
+      "can_manage_edge_agents": true,
+      "edge_inventory_source_of_truth": "business_catalog"
+    },
+    "edge_agent": {
+      "label": "Property Edge Agent",
+      "purpose": "Sonda/gateway local técnico para ZKTeco, ONVIF, RTSP/NVR, IoT y otros servicios de la LAN; sincroniza automáticamente el inventario con su Property Node",
+      "database_scope": "independent",
+      "operational_property_modules": false,
+      "credentials_stay_local": true,
+      "repository_enabled": false,
+      "offline_operation": true,
+      "requires_parent_property_node": true,
+      "central_configuration": "provisioned_by_property_node"
+    }
+  }
+}

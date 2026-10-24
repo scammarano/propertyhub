@@ -1,0 +1,25 @@
+{
+  "manifest_version": 1,
+  "connector_version": "0.1.0",
+  "requires_core": ">=0.2.0",
+  "configuration_secrets_must_be_encrypted": true,
+  "code": "sonoff",
+  "name": "Sonoff / eWeLink",
+  "domains": [
+    "automation",
+    "access"
+  ],
+  "integration_modes": [
+    "eWeLink Cloud",
+    "eWeLink CUBE local",
+    "Home Assistant",
+    "MQTT where available"
+  ],
+  "capabilities": [
+    "relay_pulse",
+    "relay_state",
+    "scenes",
+    "sensors"
+  ],
+  "status": "planned"
+}

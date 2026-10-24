@@ -1,0 +1,22 @@
+{
+  "name": "Property App · Property Hub",
+  "short_name": "Property App",
+  "description": "Aplicación para residentes y usuarios de urbanizaciones, edificios, oficinas y locales.",
+  "start_url": "index.php?route=resident-home",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f6f4",
+  "theme_color": "#176b45",
+  "icons": [
+    {
+      "src": "assets/img/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/img/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

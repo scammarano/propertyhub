@@ -1,0 +1,28 @@
+{
+  "schema": "2cam-building-repository-manifest-v1",
+  "generated_at": "2026-07-24T10:00:00-04:00",
+  "repository_version": "0.9.1",
+  "installation_uuid": "00000000-0000-4000-8000-000000000000",
+  "channel": "stable",
+  "current": {
+    "app_version": "0.9.1",
+    "api_version": "v1",
+    "ui_version": "1.2.0"
+  },
+  "releases": [
+    {
+      "release_code": "zkteco-connector-1.0.0-example",
+      "component_type": "connector",
+      "component_code": "zkteco-connector",
+      "display_name": "ZKTeco Connector",
+      "version": "1.0.0",
+      "channel": "stable",
+      "min_core_version": "0.9.1",
+      "compatible_api_versions": [
+        "v1"
+      ],
+      "package_hash_sha256": "...",
+      "package_url": "https://central.example.com/public/api/repository/v1/package.php?release=..."
+    }
+  ]
+}

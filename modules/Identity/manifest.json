@@ -1,0 +1,14 @@
+{
+  "code": "identity",
+  "name": "Identidad, usuarios y membresías",
+  "version": "0.10.7",
+  "installation_role": "building_node",
+  "capabilities": [
+    "local_users",
+    "social_identities",
+    "memberships",
+    "roles_permissions",
+    "global_identity_future"
+  ],
+  "status": "foundation"
+}

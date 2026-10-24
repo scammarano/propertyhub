@@ -1,0 +1,28 @@
+{
+  "manifest_version": 1,
+  "connector_version": "0.1.0",
+  "requires_core": ">=0.2.0",
+  "configuration_secrets_must_be_encrypted": true,
+  "code": "ttlock",
+  "name": "TTLock Open Platform",
+  "domains": [
+    "access",
+    "smart_lock"
+  ],
+  "integration_modes": [
+    "Cloud API",
+    "APP SDK",
+    "Windows DLL",
+    "gateway-assisted remote operation"
+  ],
+  "capabilities": [
+    "lock_inventory",
+    "passcodes",
+    "ekeys",
+    "gateway_status",
+    "remote_unlock",
+    "records",
+    "validity_windows"
+  ],
+  "status": "planned"
+}

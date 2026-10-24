@@ -1,0 +1,12 @@
+<?php $h=$health??['rows'=>[]]; ?>
+<div class="row g-3 mb-3"><?php foreach([['Saludables',$h['healthy']??0,'success','bi-heart-pulse'],['Con advertencias',$h['warning']??0,'warning','bi-exclamation-triangle'],['Sin conexión',$h['offline']??0,'secondary','bi-wifi-off']] as [$l,$v,$c,$i]):?><div class="col-md-4"><div class="metric-card"><div class="metric-icon text-bg-<?=e($c)?>"><i class="bi <?=e($i)?>"></i></div><div><span><?=e($l)?></span><strong><?=e($v)?></strong></div></div></div><?php endforeach;?></div>
+<div class="card"><div class="card-header"><strong>Heartbeat, colas, dispositivos y respaldo</strong><small class="d-block text-body-secondary">Incluye Property Nodes públicos y Edge Agents locales registrados en Central.</small></div><div class="card-body p-0"><div class="table-responsive"><table class="table table-hover mb-0 align-middle"><thead><tr><th>Instalación</th><th>Rol</th><th>Salud</th><th>Dispositivos</th><th>Cola</th><th>Alertas</th><th>Respaldo</th><th>Último contacto</th></tr></thead><tbody>
+<?php foreach(($h['rows']??[]) as $r):$role=(string)($r['instance_role']??'building_node');?><tr>
+<td><a href="<?=url('repository-installation',['id'=>(int)$r['id']])?>" class="fw-semibold text-decoration-none"><?=e($r['installation_name'])?></a><small class="d-block"><code><?=e($r['installation_code'])?></code></small></td>
+<td><span class="badge text-bg-<?=$role==='edge_agent'?'warning':'primary'?>"><?=e(installation_role_short($role))?></span><?php if($role==='edge_agent'):?><small class="d-block text-body-secondary"><code><?=e((string)($r['parent_installation_code']??'—'))?></code></small><?php endif;?></td>
+<td><span class="badge text-bg-<?=e(health_badge((string)$r['health_status']))?>"><?=e(health_label((string)$r['health_status']))?></span></td>
+<td><?=e($r['online_device_count']??0)?> / <?=e($r['device_count']??0)?> en línea<small class="d-block text-body-secondary"><?=e($r['warning_device_count']??0)?> con advertencia</small></td>
+<td><?=e($r['queue_depth']??0)?></td><td><?=e($r['critical_alert_count']??0)?></td>
+<td><?php $bk=(array)($r['backup']??[]);?><span class="badge text-bg-<?=($bk['last_status']??'')==='ok'?'success':(($bk['last_status']??'')==='failed'?'danger':'secondary')?>"><?=e((string)($bk['last_status']??'sin datos'))?></span><small class="d-block text-body-secondary"><?=e((string)($bk['last_backup_at']??'Nunca'))?></small></td>
+<td><?=e($r['last_seen_at']?:'Sin heartbeat')?></td></tr><?php endforeach;?>
+</tbody></table></div></div></div>

@@ -1,0 +1,31 @@
+{
+  "manifest_version": 1,
+  "connector_version": "0.1.0",
+  "requires_core": ">=0.2.0",
+  "configuration_secrets_must_be_encrypted": true,
+  "code": "unifi",
+  "name": "Ubiquiti UniFi",
+  "domains": [
+    "access",
+    "video",
+    "network"
+  ],
+  "integration_modes": [
+    "UniFi Access OpenAPI",
+    "UniFi Protect local integration",
+    "UniFi Network local API",
+    "Site Manager API",
+    "External Hotspot API"
+  ],
+  "capabilities": [
+    "door_access",
+    "credentials",
+    "access_events",
+    "cameras",
+    "recordings",
+    "access_points",
+    "guest_clients",
+    "hotspot_vouchers"
+  ],
+  "status": "planned"
+}

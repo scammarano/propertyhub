@@ -1,0 +1,15 @@
+{
+  "code": "residents",
+  "name": "Residentes y relaciones con unidades",
+  "version": "0.10.7",
+  "installation_role": "building_node",
+  "capabilities": [
+    "owners",
+    "tenants",
+    "family_members",
+    "employees",
+    "representatives",
+    "membership_validity"
+  ],
+  "status": "foundation"
+}

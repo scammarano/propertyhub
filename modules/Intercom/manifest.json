@@ -1,0 +1,15 @@
+{
+  "code": "intercom",
+  "name": "Intercomunicación y perifonía",
+  "version": "0.10.7",
+  "installation_role": "building_node",
+  "capabilities": [
+    "sip",
+    "extensions",
+    "door_intercom",
+    "call_groups",
+    "paging_zones",
+    "announcements"
+  ],
+  "status": "planned"
+}

@@ -1,0 +1,26 @@
+{
+  "manifest_version": 1,
+  "connector_version": "0.1.0",
+  "requires_core": ">=0.2.0",
+  "configuration_secrets_must_be_encrypted": true,
+  "code": "generic_relay",
+  "name": "Generic Relay",
+  "domains": [
+    "automation",
+    "access"
+  ],
+  "integration_modes": [
+    "HTTP",
+    "MQTT",
+    "Modbus TCP",
+    "Home Assistant"
+  ],
+  "capabilities": [
+    "pulse",
+    "on",
+    "off",
+    "status",
+    "digital_input"
+  ],
+  "status": "planned"
+}

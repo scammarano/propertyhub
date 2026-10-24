@@ -1,0 +1,653 @@
+/* 2CAM UI Standard + AdminLTE 4
+   Capa de integración: conserva los componentes funcionales existentes y
+   reemplaza únicamente la carcasa principal de navegación y contenido. */
+
+:root{
+    --cam-sidebar-width:268px;
+    --cam-sidebar-collapsed-width:74px;
+    --cam-header-height:58px;
+}
+
+.cam-adminlte{font-size:var(--font-scale,100%);--lte-sidebar-width:var(--cam-sidebar-width)}
+.cam-adminlte .app-wrapper{min-height:100vh}
+.cam-adminlte .app-header{min-height:var(--cam-header-height);border-bottom:1px solid var(--border,#e5e9f2);z-index:1040}
+.cam-adminlte .app-header .nav-link{display:flex;align-items:center;gap:7px;color:var(--bs-body-color);padding:.55rem .7rem}
+.cam-adminlte .cam-sidebar-toggle{width:42px;height:42px;justify-content:center;border-radius:10px}
+.cam-adminlte .cam-sidebar-toggle:hover,.cam-adminlte .cam-logout:hover{background:color-mix(in srgb,var(--primary) 10%,transparent);color:var(--primary)}
+.cam-svg-icon{width:20px;height:20px;display:block;flex:0 0 auto}
+
+.cam-header-context{display:grid;line-height:1.15;margin-left:4px}
+.cam-header-context strong{font-size:14px}
+.cam-header-context small{margin-top:4px;color:var(--muted,#667085);font-size:11px;font-weight:600}
+.cam-version{display:inline-flex;padding:6px 10px;border-radius:999px;background:color-mix(in srgb,var(--primary) 10%,transparent);color:var(--primary);font-size:11px;font-weight:800;white-space:nowrap}
+.cam-user-summary{display:flex;align-items:center;gap:8px;padding:0 8px;color:var(--bs-body-color)}
+.cam-user-summary>span{display:grid;line-height:1.1}
+.cam-user-summary strong{font-size:12px;max-width:170px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cam-user-summary small{margin-top:3px;color:var(--muted,#667085);font-size:10px;font-weight:700;text-transform:uppercase}
+.cam-logout{font-size:12px;font-weight:800}
+
+.cam-adminlte .app-sidebar{
+    width:var(--cam-sidebar-width);
+    background:var(--sidebar-bg,#15182b)!important;
+    color:#fff;
+    border-right:0;
+}
+.cam-adminlte .sidebar-brand{height:var(--cam-header-height);border-bottom:1px solid rgba(255,255,255,.1);padding:0 12px}
+.cam-adminlte .brand-link{display:flex;align-items:center;gap:10px;height:100%;min-width:0;color:#fff;text-decoration:none}
+.cam-adminlte .brand-image{float:none;margin:0;max-height:none}
+.cam-brand-mark,.cam-company-logo{width:38px;height:38px;flex:0 0 38px;border-radius:11px}
+.cam-brand-mark{display:grid;place-items:center;background:linear-gradient(135deg,var(--primary),color-mix(in srgb,var(--primary) 55%,#fff));color:#fff;font-size:13px;font-weight:900;box-shadow:0 7px 20px rgba(0,0,0,.2)}
+.cam-company-logo{object-fit:contain;background:#fff;padding:4px}
+.cam-adminlte .brand-text{display:grid;min-width:0;line-height:1.1}
+.cam-adminlte .brand-text strong{font-size:14px;letter-spacing:.04em}
+.cam-adminlte .brand-text small{margin-top:4px;max-width:180px;color:#aeb5cd;font-size:10px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+.cam-adminlte .sidebar-wrapper{height:calc(100vh - var(--cam-header-height) - 53px);padding:8px 9px 16px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:#3d4365 transparent}
+.cam-adminlte .sidebar-menu{gap:3px}
+.cam-adminlte .sidebar-menu>.nav-item>.nav-link,
+.cam-adminlte .nav-treeview>.nav-item>.nav-link{
+    color:#c9cee0;
+    border-radius:9px;
+    margin:0;
+    transition:background-color .14s ease,color .14s ease;
+}
+.cam-adminlte .sidebar-menu>.nav-item>.nav-link{min-height:42px;padding:10px 11px;font-weight:750}
+.cam-adminlte .sidebar-menu>.nav-item>.nav-link:hover,
+.cam-adminlte .sidebar-menu>.nav-item>.nav-link.active{background:#272d49;color:#fff}
+.cam-adminlte .sidebar-menu .nav-icon{width:26px;display:grid;place-items:center;margin-right:5px}
+.cam-adminlte .sidebar-menu .nav-icon .cam-svg-icon{width:18px;height:18px}
+.cam-adminlte .sidebar-menu .nav-link p{display:flex;align-items:center;min-width:0;font-size:12px;letter-spacing:.005em}
+.cam-adminlte .nav-arrow{display:grid;place-items:center;margin-left:auto;transition:transform .18s ease}
+.cam-adminlte .nav-arrow .cam-svg-icon{width:14px;height:14px}
+.cam-adminlte .menu-open>.nav-link .nav-arrow{transform:rotate(90deg)}
+.cam-adminlte .nav-treeview{padding:3px 0 5px 8px}
+.cam-adminlte .nav-treeview>.nav-item>.nav-link{min-height:35px;padding:7px 9px;color:#abb2ca}
+.cam-adminlte .nav-treeview>.nav-item>.nav-link:hover,
+.cam-adminlte .nav-treeview>.nav-item>.nav-link.active{background:rgba(255,255,255,.09);color:#fff}
+.cam-adminlte .nav-treeview>.nav-item>.nav-link.active{box-shadow:inset 3px 0 0 var(--primary)}
+.cam-adminlte .nav-treeview .nav-link p{font-size:11.5px;font-weight:620;white-space:normal;line-height:1.25}
+.cam-child-dot{width:6px!important;height:6px!important;border-radius:50%;background:#747c99;margin:0 10px 0 7px!important}
+.cam-adminlte .nav-treeview .nav-link.active .cam-child-dot{background:var(--primary)}
+.cam-sidebar-footer{height:53px;display:grid;align-content:center;padding:7px 16px;border-top:1px solid rgba(255,255,255,.1);color:#fff;line-height:1.1}
+.cam-sidebar-footer span{font-size:11px;font-weight:900;letter-spacing:.04em}
+.cam-sidebar-footer small{margin-top:4px;color:#929bb8;font-size:9px;font-weight:700;text-transform:uppercase}
+
+.cam-adminlte .app-main{min-width:0;overflow-x:hidden;background:var(--bg,#f5f7fb)}
+.cam-adminlte .app-content-header{padding:17px 0 12px}
+.cam-adminlte .app-content-header h1{font-size:23px;font-weight:800;letter-spacing:-.025em}
+.cam-page-subtitle{margin-top:4px;color:var(--muted,#667085);font-size:11px;font-weight:650}
+.cam-adminlte .app-content{padding:0 0 24px}
+.cam-content{min-width:0}
+.cam-content>.toolbar:first-child,.cam-content>.page-heading:first-child{margin-top:0}
+.cam-content>.card+.card,.cam-content>.card+.grid,.cam-content>.grid+.card,.cam-content>.two-col+.card{margin-top:14px}
+
+/* El CSS histórico usa .card como componente autónomo; en esta fase se conserva. */
+.cam-adminlte .card{background:var(--panel,#fff);color:var(--ink,#172033)}
+.cam-adminlte .table-wrap{box-shadow:0 3px 14px rgba(16,24,40,.035)}
+.cam-adminlte input,.cam-adminlte select,.cam-adminlte textarea{color:var(--ink,#172033)}
+.cam-adminlte .app-footer{
+    min-height:48px;
+    padding:15px 18px;
+    border-top:1px solid var(--border,#e5e9f2);
+    background:var(--panel,#fff);
+    color:var(--muted,#667085);
+    text-align:left;
+    font-size:11px;
+}
+.cam-adminlte .app-footer strong{color:var(--ink,#172033)}
+
+/* AdminLTE colapsado */
+.cam-adminlte.sidebar-collapse .app-sidebar{width:var(--cam-sidebar-collapsed-width);min-width:var(--cam-sidebar-collapsed-width);max-width:var(--cam-sidebar-collapsed-width)}
+.cam-adminlte.sidebar-collapse .brand-text,
+.cam-adminlte.sidebar-collapse .sidebar-menu .nav-link p,
+.cam-adminlte.sidebar-collapse .cam-sidebar-footer{display:none}
+.cam-adminlte.sidebar-collapse .sidebar-brand{padding:0 17px}
+.cam-adminlte.sidebar-collapse .sidebar-wrapper{padding-left:10px;padding-right:10px}
+.cam-adminlte.sidebar-collapse .sidebar-menu .nav-icon{margin:0;width:100%}
+
+/* Login */
+.cam-login-page{min-height:100vh!important;display:flex!important;align-items:center!important;justify-content:center!important;padding:26px;background:radial-gradient(circle at 18% 18%,color-mix(in srgb,var(--primary) 20%,transparent),transparent 33%),#f3f5fb!important}
+.cam-login-page .login-box{width:min(410px,100%)}
+.cam-login-page .login-logo{margin-bottom:16px;font-size:22px}
+.cam-login-page .login-logo a{display:flex;align-items:center;justify-content:center;gap:9px;color:var(--ink,#172033)}
+.cam-login-mark{display:grid;place-items:center;width:42px;height:42px;border-radius:12px;background:var(--primary);color:#fff;font-size:13px;font-weight:900;box-shadow:0 10px 25px color-mix(in srgb,var(--primary) 28%,transparent)}
+.cam-login-card.card{padding:0;border:0;border-radius:18px;overflow:hidden;box-shadow:0 24px 60px rgba(17,24,39,.15)}
+.cam-login-card .login-card-body{padding:30px}
+.cam-login-card .login-box-msg{padding:0 0 20px;color:var(--muted,#667085);font-weight:650}
+.cam-login-button{width:100%;min-height:43px;margin-top:5px}
+.cam-login-foot{margin:20px 0 0;text-align:center;color:var(--muted,#667085);font-size:10px;font-weight:650}
+
+[data-bs-theme=dark] .cam-adminlte .app-main{background:#111722}
+[data-bs-theme=dark] .cam-adminlte .app-header,[data-bs-theme=dark] .cam-adminlte .app-footer{background:#171d29!important;border-color:#2a3242}
+[data-bs-theme=dark] .cam-adminlte .card,[data-bs-theme=dark] .cam-adminlte .table-wrap,[data-bs-theme=dark] .cam-adminlte input,[data-bs-theme=dark] .cam-adminlte select,[data-bs-theme=dark] .cam-adminlte textarea{background:#171d29;color:#e8edf5;border-color:#30394a}
+[data-bs-theme=dark] .cam-adminlte th{background:#1d2431;color:#aeb7c8}
+[data-bs-theme=dark] .cam-adminlte td{border-color:#2b3444}
+[data-bs-theme=dark] .cam-login-page{background:#101620!important}
+
+@media (max-width:991.98px){
+    .cam-adminlte .app-sidebar{width:var(--cam-sidebar-width)}
+    .cam-user-summary>span,.cam-version{display:none}
+}
+
+@media (max-width:575.98px){
+    .cam-adminlte .app-content-header{padding-top:13px}
+    .cam-adminlte .app-content-header h1{font-size:20px}
+    .cam-adminlte .app-footer{text-align:center}
+    .cam-login-card .login-card-body{padding:24px 20px}
+}
+
+/* ============================================================
+   2CAM UI 2CAM 0.14.0 · navegación jerárquica y dashboard UI Lab
+   ============================================================ */
+.cam-adminlte .cam-breadcrumb{font-size:11px;font-weight:700;color:var(--muted,#667085);align-items:center}
+.cam-adminlte .cam-breadcrumb .breadcrumb-item+.breadcrumb-item:before{color:#98a2b3}
+.cam-adminlte .cam-breadcrumb .active{color:var(--primary)}
+
+/* Segundo nivel: Tablas / Procesos / Reportes. */
+.cam-adminlte .cam-level-two{padding:3px 0 6px 7px}
+.cam-adminlte .cam-level-two>.nav-item>.cam-section-link{min-height:36px;padding:7px 8px;color:#d5d9e6;background:rgba(255,255,255,.025)}
+.cam-adminlte .cam-level-two>.nav-item>.cam-section-link:hover,
+.cam-adminlte .cam-level-two>.nav-item>.cam-section-link.active{background:rgba(255,255,255,.075);color:#fff}
+.cam-adminlte .cam-level-two>.nav-item>.cam-section-link .nav-icon{width:23px;margin-right:4px}
+.cam-adminlte .cam-level-two>.nav-item>.cam-section-link .cam-svg-icon{width:15px;height:15px}
+.cam-adminlte .cam-level-two>.nav-item>.cam-section-link p{font-size:10.5px;font-weight:850;letter-spacing:.055em;text-transform:uppercase}
+.cam-adminlte .cam-level-three{padding:2px 0 7px 12px}
+.cam-adminlte .cam-level-three>.nav-item>.nav-link{min-height:33px;padding:6px 8px;color:#aeb6cb}
+.cam-adminlte .cam-level-three>.nav-item>.nav-link .nav-icon{width:21px;margin-right:4px;opacity:.84}
+.cam-adminlte .cam-level-three>.nav-item>.nav-link .cam-svg-icon{width:14px;height:14px}
+.cam-adminlte .cam-level-three>.nav-item>.nav-link p{font-size:11px;font-weight:600;line-height:1.2}
+.cam-adminlte .cam-level-three>.nav-item>.nav-link.active{background:linear-gradient(90deg,color-mix(in srgb,var(--primary) 34%,transparent),rgba(255,255,255,.06));box-shadow:inset 3px 0 0 var(--primary);color:#fff}
+.cam-adminlte .cam-level-three>.nav-item>.nav-link.active .nav-icon{opacity:1;color:#fff}
+.cam-adminlte.sidebar-collapse .cam-level-two,.cam-adminlte.sidebar-collapse .cam-level-three{display:none!important}
+
+/* Encabezado y acciones rápidas del dashboard. */
+.cam-dashboard-head{align-items:center;margin-bottom:12px}
+.cam-dashboard-head h2{font-size:1.55rem;font-weight:850;letter-spacing:-.035em}
+.cam-dashboard-actions{display:flex;gap:8px;align-items:center}
+.cam-btn-icon{display:inline-flex!important;align-items:center;gap:7px}
+.cam-btn-icon .cam-svg-icon{width:16px;height:16px}
+.cam-quick-actions{display:flex;gap:8px;overflow-x:auto;padding:2px 1px 13px;scrollbar-width:thin}
+.cam-quick-action{display:inline-flex;align-items:center;gap:8px;flex:0 0 auto;padding:9px 12px;border:1px solid var(--border,#e5e9f2);border-radius:11px;background:var(--panel,#fff);box-shadow:0 3px 12px rgba(16,24,40,.035);color:var(--ink,#172033);font-size:11px;font-weight:800;transition:transform .14s ease,border-color .14s ease,box-shadow .14s ease}
+.cam-quick-action:hover{transform:translateY(-1px);border-color:color-mix(in srgb,var(--primary) 42%,var(--border));box-shadow:0 8px 20px rgba(16,24,40,.08);color:var(--primary)}
+.cam-quick-action .cam-svg-icon{width:17px;height:17px;color:var(--primary)}
+
+/* Rejilla responsiva con anchos definidos por tipo de widget. */
+.cam-dashboard-grid{display:grid!important;grid-template-columns:repeat(12,minmax(0,1fr))!important;gap:12px!important;align-items:stretch}
+.cam-dashboard-grid>.dashboard-widget{grid-column:span 3!important;min-width:0;margin:0!important}
+.cam-dashboard-grid>.cam-rates-card{grid-column:span 3!important}
+.cam-dashboard-grid>.cam-chart-card{grid-column:span 8!important}
+.cam-dashboard-grid>.cam-status-card{grid-column:span 4!important}
+.cam-dashboard-grid>.cam-sync-card{grid-column:span 4!important}
+.cam-dashboard-grid>.cam-system-card{grid-column:span 4!important}
+.cam-dashboard-grid>.cam-movements-card{grid-column:span 8!important}
+.cam-dashboard-grid>.cam-calendar-card{grid-column:span 2!important}
+.cam-dashboard-grid>.cam-rates-card{grid-column:span 4!important}
+
+/* Small boxes estilo AdminLTE, suavizados para uso administrativo. */
+.cam-small-box{position:relative;display:flex;flex-direction:column;min-height:154px;border:0;border-radius:var(--radius,12px);overflow:hidden;color:#fff;box-shadow:0 10px 26px rgba(16,24,40,.11)}
+.cam-small-box .inner{position:relative;z-index:2;padding:17px 17px 12px}
+.cam-small-box .cam-kpi-label{display:block;font-size:11px;font-weight:850;letter-spacing:.045em;text-transform:uppercase;opacity:.88}
+.cam-small-box h3{margin:7px 0 4px;font-size:1.48rem;font-weight:900;line-height:1.05;letter-spacing:-.04em;white-space:nowrap}
+.cam-small-box p{margin:0;font-size:11px;font-weight:650;opacity:.88}
+.cam-small-box .small-box-icon{position:absolute;right:12px;top:12px;z-index:1;opacity:.18;transform:rotate(-5deg)}
+.cam-small-box .cam-dashboard-icon{width:72px;height:72px;stroke-width:1.35}
+.cam-small-box .small-box-footer{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding:8px 14px;background:rgba(0,0,0,.12);color:#fff;font-size:10.5px;font-weight:800}
+.cam-small-box .small-box-footer:hover{background:rgba(0,0,0,.19);color:#fff}
+.cam-small-box-sales{background:linear-gradient(135deg,#5a40d6,#7c5cff)}
+.cam-small-box-inventory{background:linear-gradient(135deg,#0f766e,#16a394)}
+.cam-small-box-ar{background:linear-gradient(135deg,#1769aa,#328bd1)}
+.cam-small-box-ap{background:linear-gradient(135deg,#b45309,#e78a1d)}
+.cam-kpi-trend{display:inline-flex;margin-top:7px;padding:3px 7px;border-radius:999px;background:rgba(255,255,255,.15);font-size:9px;font-weight:800}
+.cam-kpi-trend.down{background:rgba(98,12,12,.2)}
+
+/* Cabeceras comunes de widgets. */
+.cam-widget-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:13px}
+.cam-widget-heading h3{margin:2px 0 0;font-size:15px;font-weight:850;letter-spacing:-.02em;color:var(--ink,#172033)}
+.cam-widget-heading>a{font-size:10.5px;font-weight:800;white-space:nowrap}
+.cam-widget-kicker{display:block;color:var(--muted,#667085);font-size:9px;font-weight:850;letter-spacing:.075em;text-transform:uppercase}
+.cam-chart-card,.cam-status-card,.cam-sync-card,.cam-system-card,.cam-movements-card{padding:16px!important;min-height:220px!important}
+
+/* Gráfico de barras sin dependencias externas. */
+.cam-bar-chart{display:grid;grid-template-columns:repeat(6,minmax(42px,1fr));gap:12px;height:176px;padding:5px 4px 0;align-items:end;border-bottom:1px solid var(--border,#e5e9f2)}
+.cam-bar-column{height:100%;display:grid;grid-template-rows:24px 1fr 22px;align-items:end;text-align:center;min-width:0}
+.cam-bar-value{align-self:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--muted,#667085);font-size:9px;font-weight:750}
+.cam-bar-track{height:100%;display:flex;align-items:flex-end;justify-content:center;border-radius:8px 8px 0 0;background:linear-gradient(to top,color-mix(in srgb,var(--primary) 5%,transparent),transparent)}
+.cam-bar-track span{display:block;width:min(42px,72%);min-height:4px;border-radius:7px 7px 2px 2px;background:linear-gradient(180deg,color-mix(in srgb,var(--primary) 70%,#fff),var(--primary));box-shadow:0 6px 15px color-mix(in srgb,var(--primary) 20%,transparent);transition:height .35s ease}
+.cam-bar-column strong{padding-top:5px;color:var(--muted,#667085);font-size:9px;letter-spacing:.04em}
+
+/* Dona de estados. */
+.cam-status-content{display:grid;grid-template-columns:128px 1fr;gap:18px;align-items:center;padding-top:7px}
+.cam-donut{width:124px;height:124px;border-radius:50%;display:grid;place-items:center;box-shadow:inset 0 0 0 1px rgba(0,0,0,.035)}
+.cam-donut:before{content:"";grid-area:1/1;width:76px;height:76px;border-radius:50%;background:var(--panel,#fff);box-shadow:0 2px 10px rgba(16,24,40,.08)}
+.cam-donut span{grid-area:1/1;z-index:1;display:grid;text-align:center;line-height:1.05}
+.cam-donut strong{font-size:22px;color:var(--ink,#172033)}
+.cam-donut small{margin-top:4px;color:var(--muted,#667085);font-size:9px;font-weight:800;text-transform:uppercase}
+.cam-status-legend{display:grid;gap:9px}
+.cam-status-legend>div{display:grid;grid-template-columns:10px minmax(0,1fr) auto;gap:7px;align-items:center;padding-bottom:7px;border-bottom:1px solid var(--border,#e5e9f2);font-size:10.5px}
+.cam-status-legend i{width:9px;height:9px;border-radius:3px;background:var(--legend-color)}
+.cam-status-legend span{color:var(--muted,#667085);font-weight:650}
+.cam-status-legend strong{color:var(--ink,#172033)}
+
+/* Sincronización y sistema. */
+.cam-health-badge{display:inline-flex;align-items:center;padding:4px 8px;border-radius:999px;font-size:9px;font-weight:850;white-space:nowrap}
+.cam-health-badge.ok{background:#dcfce7;color:#167344}
+.cam-health-badge.warning{background:#fff3cd;color:#9a5a00}
+.cam-sync-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:6px}
+.cam-sync-metrics>div{display:flex;gap:7px;align-items:center;padding:9px 7px;border:1px solid var(--border,#e5e9f2);border-radius:10px;background:color-mix(in srgb,var(--panel,#fff) 92%,var(--bg,#f5f7fb))}
+.cam-sync-metrics .cam-svg-icon{width:17px;height:17px;color:var(--primary)}
+.cam-sync-metrics span{display:grid;line-height:1.05}
+.cam-sync-metrics strong{font-size:15px}
+.cam-sync-metrics small{margin-top:3px;color:var(--muted,#667085);font-size:8px;font-weight:700}
+.cam-sync-last{margin-top:10px;color:var(--muted,#667085);font-size:9.5px}
+.cam-sync-last strong{color:var(--ink,#172033)}
+.cam-system-card.versions-widget>div:not(.cam-widget-heading){grid-template-columns:minmax(110px,1fr) auto;padding:6px 0;font-size:10.5px}
+
+/* Movimientos recientes. */
+.cam-movements-card .table-wrap{max-height:260px;overflow:auto;border-radius:10px}
+.cam-movements-card table{font-size:10.5px}
+.cam-movements-card th{font-size:9px;letter-spacing:.05em}
+.cam-table-subtitle{display:block;margin-top:2px;color:var(--muted,#667085);font-size:9px}
+.cam-in{color:#147d55;font-weight:800}.cam-out{color:#b42318;font-weight:800}
+
+/* Calendar y BCV se integran con las nuevas tarjetas. */
+.cam-calendar-card{min-height:154px!important;border:0!important;box-shadow:0 8px 22px rgba(16,24,40,.075)}
+.cam-calendar-card .calendar-month{background:linear-gradient(135deg,var(--primary),color-mix(in srgb,var(--primary) 72%,#fff))}
+.cam-rates-card{min-height:154px!important;box-shadow:0 8px 22px rgba(16,24,40,.075)}
+.cam-rates-card .bcv-widget-rate{grid-template-columns:minmax(75px,1fr) auto minmax(48px,auto)}
+
+/* Login con identidad de la empresa. */
+.cam-login-page .login-logo a>span:last-child{display:grid;text-align:left;line-height:1.05}
+.cam-login-page .login-logo a>span:last-child b{font-size:17px}
+.cam-login-page .login-logo a>span:last-child small{margin-top:4px;color:var(--muted,#667085);font-size:10px;font-weight:700}
+.cam-login-company-logo{width:52px;height:52px;object-fit:contain;border-radius:13px;background:#fff;padding:5px;box-shadow:0 9px 24px rgba(16,24,40,.12)}
+
+[data-bs-theme=dark] .cam-quick-action,[data-bs-theme=dark] .cam-donut:before{background:#171d29}
+[data-bs-theme=dark] .cam-sync-metrics>div{background:#1b2230}
+[data-bs-theme=dark] .cam-health-badge.ok{background:#123d2c;color:#7ee2b8}
+[data-bs-theme=dark] .cam-health-badge.warning{background:#493614;color:#ffd978}
+
+@media (max-width:1399px){
+    .cam-dashboard-grid>.dashboard-widget{grid-column:span 4!important}
+    .cam-dashboard-grid>.cam-calendar-card{grid-column:span 3!important}
+    .cam-dashboard-grid>.cam-rates-card{grid-column:span 5!important}
+    .cam-dashboard-grid>.cam-chart-card,.cam-dashboard-grid>.cam-movements-card{grid-column:span 8!important}
+}
+@media (max-width:1099px){
+    .cam-dashboard-grid>.dashboard-widget{grid-column:span 6!important}
+    .cam-dashboard-grid>.cam-calendar-card{grid-column:span 4!important}
+    .cam-dashboard-grid>.cam-rates-card{grid-column:span 8!important}
+    .cam-dashboard-grid>.cam-chart-card,.cam-dashboard-grid>.cam-movements-card{grid-column:1/-1!important}
+    .cam-dashboard-grid>.cam-status-card,.cam-dashboard-grid>.cam-sync-card,.cam-dashboard-grid>.cam-system-card{grid-column:span 6!important}
+}
+@media (max-width:767px){
+    .cam-dashboard-head{align-items:flex-start}
+    .cam-dashboard-grid{grid-template-columns:1fr!important}
+    .cam-dashboard-grid>.dashboard-widget{grid-column:1/-1!important}
+    .cam-small-box h3{font-size:1.35rem}
+    .cam-bar-chart{gap:5px;height:156px}
+    .cam-bar-value{display:none}
+    .cam-status-content{grid-template-columns:110px 1fr;gap:12px}
+    .cam-donut{width:104px;height:104px}.cam-donut:before{width:65px;height:65px}
+    .cam-sync-metrics{grid-template-columns:1fr}
+}
+
+/* ============================================================
+   2CAM UI 2CAM 0.14.7 · modales centrados en el área útil
+   ============================================================
+   Los modales históricos usan position:fixed respecto al viewport. Con la
+   barra lateral de AdminLTE abierta, eso los centraba detrás del menú. Esta
+   capa reserva el ancho real de la barra lateral y recalcula el área modal.
+*/
+.cam-adminlte .modal,
+.cam-adminlte .wa-modal,
+.cam-adminlte .tx-modal-overlay{
+    box-sizing:border-box;
+}
+
+.cam-adminlte .modal-card,
+.cam-adminlte .wa-modal-dialog,
+.cam-adminlte .tx-modal-shell{
+    max-width:calc(100% - 32px);
+    max-height:calc(100dvh - 32px);
+    overscroll-behavior:contain;
+}
+
+.cam-adminlte .modal-card{
+    width:min(1100px,calc(100% - 32px));
+    overflow-x:hidden;
+}
+
+.cam-adminlte .modal-card.wide{
+    width:min(1180px,calc(100% - 32px));
+}
+
+.cam-adminlte .wa-modal-dialog{
+    width:min(760px,calc(100% - 32px));
+}
+
+.cam-adminlte .wa-modal-dialog.wide,
+.cam-adminlte .wa-modal.wide .wa-modal-dialog{
+    width:min(1050px,calc(100% - 32px));
+}
+
+.cam-adminlte .tx-modal-shell{
+    width:min(1380px,calc(100% - 24px));
+}
+
+.cam-adminlte .modal-card .form-grid > *,
+.cam-adminlte .wa-modal-dialog .form-grid > *,
+.cam-adminlte .tx-modal-shell .form-grid > *{
+    min-width:0;
+}
+
+.cam-adminlte .modal-card input,
+.cam-adminlte .modal-card select,
+.cam-adminlte .modal-card textarea,
+.cam-adminlte .wa-modal-dialog input,
+.cam-adminlte .wa-modal-dialog select,
+.cam-adminlte .wa-modal-dialog textarea{
+    min-width:0;
+    max-width:100%;
+}
+
+.cam-adminlte .modal-head,
+.cam-adminlte .wa-modal-head{
+    position:sticky;
+    top:-22px;
+    z-index:12;
+    padding:2px 0 12px;
+    background:var(--panel,#fff);
+    border-bottom:1px solid var(--border,#e5e9f2);
+}
+
+.cam-adminlte .modal-head h2,
+.cam-adminlte .wa-modal-head h2{
+    min-width:0;
+    overflow-wrap:anywhere;
+}
+
+.cam-adminlte .modal-actions,
+.cam-adminlte .document-actions,
+.cam-adminlte .modal-card form > div[style*="text-align:right"]{
+    display:flex!important;
+    justify-content:flex-end;
+    flex-wrap:wrap;
+    gap:8px;
+}
+
+@media (min-width:992px){
+    .cam-adminlte:not(.sidebar-collapse) .modal,
+    .cam-adminlte:not(.sidebar-collapse) .wa-modal,
+    .cam-adminlte:not(.sidebar-collapse) .tx-modal-overlay{
+        left:var(--cam-sidebar-width)!important;
+        width:auto!important;
+    }
+
+    .cam-adminlte.sidebar-collapse .modal,
+    .cam-adminlte.sidebar-collapse .wa-modal,
+    .cam-adminlte.sidebar-collapse .tx-modal-overlay{
+        left:var(--cam-sidebar-collapsed-width)!important;
+        width:auto!important;
+    }
+}
+
+@media (max-width:991.98px){
+    .cam-adminlte .modal,
+    .cam-adminlte .wa-modal,
+    .cam-adminlte .tx-modal-overlay{
+        left:0!important;
+        width:auto!important;
+        padding:10px;
+    }
+
+    .cam-adminlte .modal-card,
+    .cam-adminlte .modal-card.wide,
+    .cam-adminlte .wa-modal-dialog,
+    .cam-adminlte .wa-modal-dialog.wide,
+    .cam-adminlte .wa-modal.wide .wa-modal-dialog,
+    .cam-adminlte .tx-modal-shell{
+        width:100%;
+        max-width:100%;
+        max-height:calc(100dvh - 20px);
+        border-radius:14px;
+    }
+}
+
+@media (max-width:760px){
+    .cam-adminlte .modal-card,
+    .cam-adminlte .wa-modal-dialog{
+        padding:16px;
+    }
+
+    .cam-adminlte .modal-head,
+    .cam-adminlte .wa-modal-head{
+        top:-16px;
+    }
+
+    .cam-adminlte .modal-card .form-grid,
+    .cam-adminlte .wa-modal-dialog .form-grid{
+        grid-template-columns:1fr!important;
+    }
+
+    .cam-adminlte .modal-card .span-2,
+    .cam-adminlte .modal-card .span-3,
+    .cam-adminlte .wa-modal-dialog .span-2,
+    .cam-adminlte .wa-modal-dialog .span-3{
+        grid-column:1/-1!important;
+    }
+}
+
+/* ============================================================
+   2CAM UI 2CAM 0.14.7 · dashboard global configurable por SUPERADMIN
+   ============================================================ */
+.cam-dashboard-grid{
+    grid-auto-flow:dense;
+    grid-auto-rows:74px;
+}
+.cam-dashboard-grid>.dashboard-widget{
+    grid-column:span var(--cam-widget-cols,4)!important;
+    grid-row:span var(--cam-widget-rows,2)!important;
+    min-width:0!important;
+    min-height:0!important;
+    height:100%!important;
+    max-height:none!important;
+    overflow:auto;
+}
+.cam-dashboard-grid>.dashboard-widget.cam-small-box,
+.cam-dashboard-grid>.dashboard-widget.cam-calendar-card,
+.cam-dashboard-grid>.dashboard-widget.cam-rates-card,
+.cam-dashboard-grid>.dashboard-widget.cam-chart-card,
+.cam-dashboard-grid>.dashboard-widget.cam-status-card,
+.cam-dashboard-grid>.dashboard-widget.cam-sync-card,
+.cam-dashboard-grid>.dashboard-widget.cam-system-card,
+.cam-dashboard-grid>.dashboard-widget.cam-movements-card{
+    grid-column:span var(--cam-widget-cols,4)!important;
+    grid-row:span var(--cam-widget-rows,2)!important;
+    min-height:0!important;
+}
+
+.cam-dashboard-layout-editor{
+    display:grid;
+    grid-template-columns:repeat(12,minmax(0,1fr));
+    grid-auto-rows:72px;
+    grid-auto-flow:dense;
+    gap:12px;
+    padding:14px;
+    border:1px dashed color-mix(in srgb,var(--primary) 34%,var(--border,#dfe4ee));
+    border-radius:14px;
+    background:color-mix(in srgb,var(--primary) 2.5%,var(--panel,#fff));
+    min-height:420px;
+}
+.cam-layout-widget{
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    grid-column:span var(--cam-widget-cols,4);
+    grid-row:span var(--cam-widget-rows,2);
+    min-width:0;
+    min-height:0;
+    overflow:hidden;
+    border:1px solid var(--border,#dfe4ee);
+    border-radius:13px;
+    background:var(--panel,#fff);
+    box-shadow:0 7px 20px rgba(16,24,40,.07);
+    transition:opacity .16s ease,box-shadow .16s ease,border-color .16s ease;
+    touch-action:none;
+}
+.cam-layout-widget:hover{border-color:color-mix(in srgb,var(--primary) 38%,var(--border));box-shadow:0 10px 26px rgba(16,24,40,.11)}
+.cam-layout-widget.is-disabled{opacity:.5;filter:grayscale(.35)}
+.cam-layout-widget.is-dragging{opacity:.55;border-color:var(--primary);box-shadow:0 14px 32px color-mix(in srgb,var(--primary) 18%,transparent)}
+.cam-layout-widget.is-resizing{border-color:var(--primary);outline:3px solid color-mix(in srgb,var(--primary) 13%,transparent)}
+.cam-layout-widget-head{display:flex;align-items:center;gap:8px;padding:9px 10px;border-bottom:1px solid var(--border,#e5e9f2);background:color-mix(in srgb,var(--primary) 3%,var(--panel,#fff))}
+.cam-layout-widget-head>div{display:grid;min-width:0;line-height:1.15;flex:1}
+.cam-layout-widget-head strong{font-size:11px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cam-layout-widget-head small{font-size:8px;color:var(--muted,#667085)}
+.cam-drag-handle{display:grid;place-items:center;width:28px;height:28px;border:0;border-radius:8px;background:transparent;color:var(--muted,#667085);font-size:20px;line-height:1;cursor:grab}
+.cam-drag-handle:active{cursor:grabbing}
+.cam-widget-active{display:flex;gap:5px;align-items:center;margin:0;font-size:9px;font-weight:800;white-space:nowrap}
+.cam-layout-widget-preview{display:flex;align-items:center;gap:10px;min-height:0;flex:1;padding:11px}
+.cam-layout-widget-preview>div{display:grid;min-width:0}
+.cam-layout-widget-preview b{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px}
+.cam-layout-widget-preview small{margin-top:3px;color:var(--muted,#667085);font-size:9px}
+.cam-layout-icon{display:grid;place-items:center;flex:0 0 35px;width:35px;height:35px;border-radius:10px;background:color-mix(in srgb,var(--primary) 12%,transparent);color:var(--primary);font-weight:900}
+.cam-layout-controls{display:flex;gap:4px;position:absolute;left:9px;bottom:8px}
+.cam-layout-controls button{width:25px;height:24px;padding:0;border:1px solid var(--border,#dfe4ee);border-radius:7px;background:var(--panel,#fff);color:var(--ink,#172033);font-size:12px;font-weight:900;cursor:pointer}
+.cam-layout-controls button:hover{border-color:var(--primary);color:var(--primary)}
+.cam-widget-resize-handle{position:absolute;right:0;bottom:0;width:26px;height:26px;border:0;background:transparent;cursor:nwse-resize}
+.cam-widget-resize-handle:after{content:"";position:absolute;right:5px;bottom:5px;width:10px;height:10px;border-right:2px solid var(--primary);border-bottom:2px solid var(--primary);opacity:.72}
+.cam-dashboard-config-actions{position:sticky;bottom:0;z-index:5;margin-top:14px;padding:12px;border:1px solid var(--border,#dfe4ee);border-radius:12px;background:color-mix(in srgb,var(--panel,#fff) 93%,transparent);backdrop-filter:blur(8px);box-shadow:0 -8px 24px rgba(16,24,40,.08)}
+
+@media (max-width:1099px){
+    .cam-dashboard-layout-editor{grid-template-columns:repeat(6,minmax(0,1fr))}
+    .cam-layout-widget{grid-column:span 6}
+}
+@media (max-width:767px){
+    .cam-dashboard-grid{grid-auto-rows:auto!important}
+    .cam-dashboard-grid>.dashboard-widget{grid-column:1/-1!important;grid-row:auto!important;height:auto!important;min-height:150px!important}
+    .cam-dashboard-layout-editor{grid-template-columns:1fr;grid-auto-rows:auto;padding:9px}
+    .cam-layout-widget{grid-column:1/-1!important;grid-row:auto!important;min-height:160px}
+    .cam-widget-resize-handle,.cam-layout-controls{display:none}
+}
+
+/* ============================================================
+   2CAM UI Standard 1.2.0 · sidebar persistente y jerárquico
+   ============================================================ */
+.cam-adminlte{
+    --lte-sidebar-width:var(--cam-sidebar-width);
+    --np-sidebar-width:var(--cam-sidebar-width);
+    --np-sidebar-collapsed-width:var(--cam-sidebar-collapsed-width);
+    --np-header-height:var(--cam-header-height);
+}
+.cam-adminlte .app-sidebar{
+    min-width:var(--cam-sidebar-width);
+    max-width:var(--cam-sidebar-width);
+    transition:width .22s ease,transform .22s ease;
+}
+.cam-adminlte .app-main,.cam-adminlte .app-header,.cam-adminlte .app-footer{
+    min-width:0;
+    transition:margin-left .22s ease,width .22s ease;
+}
+.cam-adminlte .sidebar-menu .nav-link{min-width:0}
+.cam-adminlte .cam-company-logo{
+    width:132px;
+    max-width:45%;
+    height:42px;
+    flex:0 1 132px;
+    margin-right:10px;
+    object-fit:contain;
+    background:#fff;
+    padding:4px 7px;
+}
+.cam-adminlte .cam-level-two{padding:3px 0 6px 7px}
+.cam-adminlte .cam-level-three{padding:2px 0 7px 12px}
+.cam-adminlte.sidebar-collapse .app-sidebar{
+    width:var(--cam-sidebar-collapsed-width);
+    min-width:var(--cam-sidebar-collapsed-width);
+    max-width:var(--cam-sidebar-collapsed-width);
+}
+.cam-adminlte.sidebar-collapse .cam-level-two,
+.cam-adminlte.sidebar-collapse .cam-level-three,
+.cam-adminlte.sidebar-collapse .sidebar-menu .nav-arrow{display:none!important}
+.cam-adminlte.sidebar-collapse .sidebar-brand .brand-link,
+.cam-adminlte.sidebar-collapse .sidebar-menu>.nav-item>.nav-link{justify-content:center;gap:0}
+.cam-adminlte.sidebar-collapse .cam-company-logo{
+    width:38px!important;
+    max-width:38px!important;
+    height:38px!important;
+    flex:0 0 38px!important;
+    margin:0!important;
+    padding:4px!important;
+}
+/* Compatibilidad visual de transición con el paquete NP 1.1.0. */
+body.np-adminlte{--cam-sidebar-width:var(--np-sidebar-width,268px);--cam-sidebar-collapsed-width:var(--np-sidebar-collapsed-width,74px);--cam-header-height:var(--np-header-height,58px)}
+body.np-adminlte:not(.cam-adminlte){font-size:var(--font-scale,100%)}
+.np-adminlte .np-level-two{padding:3px 0 6px 7px}.np-adminlte .np-level-three{padding:2px 0 7px 12px}
+
+@media(max-width:991.98px){
+    .cam-adminlte .app-sidebar{width:var(--cam-sidebar-width);min-width:var(--cam-sidebar-width);max-width:var(--cam-sidebar-width)}
+    .cam-adminlte.sidebar-collapse .cam-company-logo{
+        width:132px!important;max-width:45%!important;height:42px!important;flex:0 1 132px!important;margin:0 10px 0 0!important;padding:4px 7px!important
+    }
+    .cam-adminlte.sidebar-collapse .sidebar-brand .brand-link{justify-content:flex-start;gap:10px}
+    .cam-adminlte.sidebar-open .brand-text,
+    .cam-adminlte.sidebar-open .sidebar-menu .nav-link p,
+    .cam-adminlte.sidebar-open .cam-sidebar-footer{display:grid!important}
+    .cam-adminlte.sidebar-open .cam-level-two,
+    .cam-adminlte.sidebar-open .cam-level-three{display:block!important}
+}
+@media(prefers-reduced-motion:reduce){
+    .cam-adminlte .app-sidebar,.cam-adminlte .app-main,.cam-adminlte .app-header,.cam-adminlte .app-footer{transition:none!important}
+}
+
+
+/* ============================================================
+   2CAM UI Standard 1.2.0 final · sidebar completa hasta el final
+   Corrige menús largos: la marca y el pie quedan fijos dentro del
+   aside y solamente el contenido central se desplaza.
+   ============================================================ */
+.cam-adminlte .app-sidebar,
+.np-adminlte .app-sidebar{
+    display:flex;
+    flex-direction:column;
+    height:100vh;
+    height:100dvh;
+    max-height:100vh;
+    max-height:100dvh;
+    overflow:hidden;
+}
+.cam-adminlte .sidebar-brand,
+.np-adminlte .sidebar-brand{
+    flex:0 0 var(--cam-header-height,var(--np-header-height,58px));
+    min-height:var(--cam-header-height,var(--np-header-height,58px));
+}
+.cam-adminlte .sidebar-wrapper,
+.np-adminlte .sidebar-wrapper{
+    flex:1 1 auto;
+    min-height:0;
+    height:auto;
+    max-height:none;
+    overflow-x:hidden;
+    overflow-y:auto;
+    overscroll-behavior:contain;
+    -webkit-overflow-scrolling:touch;
+    padding-bottom:max(26px,calc(18px + env(safe-area-inset-bottom)));
+    scroll-padding-bottom:max(30px,calc(22px + env(safe-area-inset-bottom)));
+}
+.cam-adminlte .sidebar-wrapper>nav,
+.np-adminlte .sidebar-wrapper>nav{
+    min-height:min-content;
+}
+.cam-adminlte .cam-sidebar-footer,
+.np-adminlte .np-sidebar-footer{
+    flex:0 0 auto;
+    min-height:53px;
+    height:auto;
+}
+.cam-adminlte .sidebar-menu>.nav-item:last-child,
+.np-adminlte .sidebar-menu>.nav-item:last-child{
+    margin-bottom:8px;
+}
+@supports not (height:100dvh){
+    .cam-adminlte .app-sidebar,
+    .np-adminlte .app-sidebar{height:100vh;max-height:100vh}
+}
