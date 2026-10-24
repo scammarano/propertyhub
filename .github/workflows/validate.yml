@@ -1,0 +1,37 @@
+name: Validate Property Hub
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+      - name: PHP syntax
+        shell: bash
+        run: |
+          set -euo pipefail
+          while IFS= read -r -d '' file; do php -l "$file" >/dev/null; done < <(find . -type f -name '*.php' -print0)
+      - name: JSON syntax
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json, pathlib
+          for p in pathlib.Path('.').rglob('*.json'):
+              with p.open('r', encoding='utf-8') as f:
+                  json.load(f)
+          PY
+      - name: Repository hygiene
+        shell: bash
+        run: |
+          set -euo pipefail
+          test ! -d storage
+          ! find resources/releases -maxdepth 1 -type f -name '*.zip' -print -quit 2>/dev/null | grep -q .
+          ! find . -type f -name '.env*' ! -name '.env.example' -print -quit | grep -q .
