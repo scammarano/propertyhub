@@ -21,10 +21,10 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          cat .bootstrap/source.b64.part* | base64 --decode > /tmp/propertyhub-source.tar.gz
-          echo "ae5022bf8ab44d33f7d7aa505f766900c2251b00d6c8bb28f883b0905d4bc41d  /tmp/propertyhub-source.tar.gz" | sha256sum -c -
+          cat .bootstrap/source.b64.part* | base64 --decode > /tmp/propertyhub-source.tar.xz
+          echo "cc50837904cfafe7fab925824ddd8034969ba24648bede76688d46f25d6319f4  /tmp/propertyhub-source.tar.xz" | sha256sum -c -
           mkdir -p /tmp/propertyhub-source
-          tar -xzf /tmp/propertyhub-source.tar.gz -C /tmp/propertyhub-source
+          tar -xJf /tmp/propertyhub-source.tar.xz -C /tmp/propertyhub-source
       - name: Materialize source tree
         shell: bash
         run: |
