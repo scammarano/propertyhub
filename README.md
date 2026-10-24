@@ -83,3 +83,16 @@ Ver `docs/SIGNED_PROPERTY_DEPLOYMENT_FILE_0.14.57.md`.
 
 ## 0.14.55
 El enrolamiento Edge usa únicamente URL del Property Node + token; la propiedad padre es descubierta por el Node. Central permite eliminar propiedades preparadas por error o inactivas desde la pestaña Administración con protección por heartbeat reciente.
+
+## Desarrollo en GitHub
+
+El repositorio canónico de Property Hub es `scammarano/propertyhub`.
+
+- `main` es la fuente de verdad del código fuente.
+- La baseline inicial importada a GitHub es Property Hub `0.14.65`.
+- El desarrollo normal se realiza en ramas `feat/*` o `fix/*` y se integra mediante Pull Request.
+- Las migraciones publicadas son append-only: no se modifica una migración ya distribuida.
+- Los releases publicados son inmutables: un cambio de bytes requiere una versión nueva.
+- `storage/`, secretos, respaldos y ZIP generados de distribución no se versionan en Git.
+
+Vea `docs/GITHUB_DEVELOPMENT_MODEL.md` para el flujo completo.
